@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Bitcoin. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Bitcoin.
 
 You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] /
