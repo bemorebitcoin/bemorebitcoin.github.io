@@ -28,27 +28,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SPHTHW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<script>
-var obj, dbParam, xmlhttp, myObj, x, txt = "";
-obj = { "table":"customers", "limit":20 };
-dbParam = JSON.stringify(obj);
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myObj = JSON.parse(this.responseText);
-        txt += "<table border='1'>"
-        for (x in myObj) {
-            txt += "<tr><td>" + myObj[x].name + "</td></tr>";
-        }
-        txt += "</table>"        
-        document.getElementById("demo").innerHTML = txt;
-    }
-};
-xmlhttp.open("POST", "json_demo_db_post.php", true);
-xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xmlhttp.send("x=" + dbParam);
-
-</script>
   <div class="wrapper"><a class="site-title" rel="author" href="/">Be More Bitcoin</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
@@ -69,6 +48,27 @@ xmlhttp.send("x=" + dbParam);
   <header class="post-header">
     <h1 class="post-title">What we do.</h1>
   </header>
+  <script>
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { "table":"customers", "limit":20 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        txt += "<table border='1'>"
+        for (x in myObj) {
+            txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+        }
+        txt += "</table>"        
+        document.getElementById("demo").innerHTML = txt;
+    }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+
+</script>
 
   <div class="post-content">
     <p>BeMoreBitcoin helps you to find the best places to buy, sell, trade, store and learn about bitcoin.</p>
