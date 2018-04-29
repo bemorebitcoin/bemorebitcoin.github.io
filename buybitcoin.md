@@ -6,5 +6,4 @@ permalink: /buybitcoin/
 
 Buy Bitcoin.
 
-
-[jekyll-organization]: https://github.com/jekyll
+Test
