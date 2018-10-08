@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:title" content="Bitcoin Quiz - How much do you know?" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Be More Bitcoin. A short quic to test your knowledge of the world of bitcoin." />
-<meta property="og:description" content="Be More Bitcoin. A short quic to test your knowledge of the world of bitcoin." />
+<meta property="og:description" content="Be More Bitcoin. A short quiz to test your knowledge of the world of bitcoin." />
 <link rel="canonical" href="https://bemorebitcoin.com/quiz" />
 <meta property="og:url" content="https://bemorebitcoin.com/quiz" />
 <meta property="og:site_name" content="Be More Bitcoin" />
@@ -50,6 +50,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header class="post-header">
     <h1 class="post-title">Bitcoin Quiz - Do you know your Satoshis from your milibits? </h1>
   </header>
+  <img src="ThinkingBitcoinQuiz.png" alt="test your bitcoin knoweldge quiz" title="test your bitcoin knoweldge quiz" width=300px height=auto> 
 
 <form id="form1">
 
@@ -84,6 +85,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <label for="if_condition1"><input type="radio" name="ifstate1"  value="0" id="if_condition1" />Mt. Avalanche</label><br/>
 <br/>
 
+<h2>Which of these groups of countries have banned bitcoin? (for now! Oct-2018)</h2>
+<label for="if_string2"><input type="radio" name="ifstate2" value="0" id="if_string2" />China, North Korea, Zimbabwe</label><br />
+<label for="if_join2"><input type="radio" name="ifstate2" value="20" id="if_join2" />Morocco, Ecuador, Nepal</label><br />
+<label for="if_info2"><input type="radio" name="ifstate2" value="0" id="if_info2" />Singapore, Malaysia, United Kingdom</label><br />
+<label for="if_condition2"><input type="radio" name="ifstate2"  value="0" id="if_condition2" />Ireland, Iceland, New Zealand</label><br/>
+<br/>
+
+<h2>Which of these was a cryptocurrency before bitcoin?</h2>
+<label for="if_string4"><input type="radio" name="ifstate4" value="0" id="if_string3" />Moyin coin</label><br />
+<label for="if_join4"><input type="radio" name="ifstate4" value="20" id="if_join3" />Hashcash</label><br />
+<label for="if_info4"><input type="radio" name="ifstate4" value="0" id="if_info3" />Dialup dollar</label><br />
+<label for="if_condition4"><input type="radio" name="ifstate4"  value="0" id="if_condition3" />SMS Cheque</label><br/>
+<br/>
+
+<h2>Approximately when will the final bitcoin be mined?</h2>
+<label for="if_string3"><input type="radio" name="ifstate3" value="0" id="if_string3" />2020</label><br />
+<label for="if_join3"><input type="radio" name="ifstate3" value="0" id="if_join3" />2053</label><br />
+<label for="if_info3"><input type="radio" name="ifstate3" value="0" id="if_info3" />2075</label><br />
+<label for="if_condition3"><input type="radio" name="ifstate3"  value="20" id="if_condition3" />2140</label><br/>
+<br/>
+
 <button type="submit" value="Submit">Submit</button>
 <br/>
 </form>
@@ -101,6 +123,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   data-via="bemorebitcoin">
 Tweet
 </a>
+
+   <div class="post-content" id="go1">
+    <h2 class="post-title">The Be More Bitcoin Quiz</h2>
+	<p>Try our bitcoin quiz to test your knowledge of bitcoin and cyptocurrency. The world of bitcoin is always changing with this week's death of bitcoin being an old memory next week, and bitcoin's next killer app this week being bitcoin's next killer app next week.</p>
+    <p>Hopefully our quiz can test your knowledge of bitcoin or maybe lead you to find some of the more famous stories from bitcoin's past. We have put together 8 questions related to the early days of bitcoin, the technology and the companies working with bitcoin. See if you can get 100% first time, or challenge your friends to see if they are all talk! Every week there is a new crisis in bitcoin, somewhere in the world people are discovering it while others are giving up and selling their stash, in a few years these questions could just show how different we see bitcoin now. Wether you get none right or all full marks you could still be ahead of the game, there are others who have never even heard of bitcoin or have dismissed it without a second thought.</p>
+	<p>Have fun and enjoy our quiz on bitcoin! </p>
+  </div>
+
 <br/>
 
 
@@ -111,8 +141,11 @@ document.getElementById("form1").onsubmit=function() {
 	   con = parseInt(document.querySelector('input[name = "con"]:checked').value);
 	   ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
 	   ifstate1 = parseInt(document.querySelector('input[name = "ifstate1"]:checked').value);
+	   ifstate2 = parseInt(document.querySelector('input[name = "ifstate2"]:checked').value);
+	   ifstate3 = parseInt(document.querySelector('input[name = "ifstate3"]:checked').value);
+	   ifstate4 = parseInt(document.querySelector('input[name = "ifstate4"]:checked').value);
 	   
-	   result = variable + sub + con + ifstate + ifstate1;
+	   result = variable + sub + con + ifstate + ifstate1 + ifstate2 + ifstate3 + ifstate4;
 	   
 	document.getElementById("grade").innerHTML = result;
 	   
@@ -126,10 +159,13 @@ document.getElementById("form1").onsubmit=function() {
  grading = [
 	   {score:0,feedback:"Hard forked.", image: "25.png"},
 	   {score:20,feedback:"Bitcoin neebie.", image: "25.png"},
-	   {score:40,feedback:"More Nitwit than Segwit.", image: "50.png"},
-	   {score:60,feedback:"More blockchain than bitcoin.", image: "50.png"},
-	   {score:80,feedback:"Almost a full block.", image: "100.png"},
-	   {score:100,feedback:"Are you Satoshi?", image: "100.png"}
+	   {score:40,feedback:"Bitcoin neebie.", image: "50.png"},
+	   {score:60,feedback:"More Nitwit than Segwit..", image: "50.png"},
+	   {score:80,feedback:"More blockchain than bitcoin.", image: "50.png"},
+	   {score:100,feedback:"More blockchain than bitcoin.", image: "50.png"},
+	   {score:120,feedback:"More blockchain than bitcoin.", image: "50.png"},
+	   {score:140,feedback:"Almost a full block.", image: "100.png"},
+	   {score:160,feedback:"Are you Satoshi?", image: "100.png"}
 	   ];
 	  
 for(i=0; i<grading.length; i++) {
