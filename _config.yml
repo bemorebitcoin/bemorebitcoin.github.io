@@ -16,7 +16,7 @@
 title: Be More Bitcoin
 email: bemorebitcoin@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Be More Bitcoin. Site to help you navigate bitcoin. Buy, sell, trade, compare, store and learn about bitcoin.  
+  Be More Bitcoin. Helping you navigate bitcoin. Buy, sell, trade, compare, store and learn about bitcoin.  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bemorebitcoin.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bemorebitcoin
