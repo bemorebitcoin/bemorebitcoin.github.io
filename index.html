@@ -144,6 +144,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 } ]
 </script>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 75%;
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+</style>
 </head>
 <body><header class="site-header" role="banner">
 <!-- Google Tag Manager (noscript) -->
@@ -171,13 +241,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1 class="post-title">Be more Bitcoin with us</h1>
 	<h2>Learn about, buy and store Bitcoin.</h2>
   </header>
-  <img src="Be-More-Bitcoin-Logo.png" alt="be more bitcoin logo" title="be more bitcoin logo" width=100% height=auto>  
+  <img src="Be-More-Bitcoin-Logo.png" alt="be more bitcoin logo" title="be more bitcoin logo" width=100% height=auto> 
+
+<div class="buy-bitcoin">
+<p align="center">
+<button id="button" onclick="window.location.href = 'buy';" class="button button1">Buy</button>
+<br>
+<br>
+<button id="button" onclick="window.location.href = 'store';" class="button button2">Store</button>
+<br>
+<br>
+<button id="button" onclick="window.location.href = 'about';" class="button button3">About</button>
+<br>
+<br>
+<button id="button" onclick="window.location.href = 'walletchecker';" class="button button5">Wallet Address Checker</button>
+<br>
+</p>
+</div>  
   <div class="post-content">
   	<p>We can help you to find the best places to buy, store and learn about bitcoin.</p>
-    <p><a href="buy" name="buy">Buy</a></p>
-    <p><a href="store">Store</a></p>
-    <p><a href="about">Learn About</a></p>
-	<p><a href="walletchecker">Wallet Address Checker</a></p>
   <p>There are many benefits to holding some bitcoin. A few of current benefits are listed below.</p>
 <ul>
 <li>With bitcoin you can make payments across borders, without a third party or expensive fees.</li>
@@ -190,20 +272,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="post-content" id="go0">
     <h3 class="post-title">Bitcoin Trading Game</h3>
 	<p>Check out our bitcoin trading game! You can play from 2010 and see how much you could have made. Buy and sell all your way up to the 21 club.</p>
-	<p><a href="trading-game" name="bitcoin-trading-game" target="_blank">Bitcoin Trading Game</a></p>
+		<p align="center">
+		<br>
+		<button id="button" onclick="window.location.href = 'trading-game';" target="_blank" class="button button4">Bitcoin Trading Game</button>
+		<br>
+		</p>
 	<p>To see how people have got on so far check out our game leader board, <a href="trading-game-leaderboard" name="bitcoin-trading-game" target="_blank">Trading Game Leaderboard</a>.</p>
   </div>
 
   <div class="post-content" id="go0">
     <h3 class="post-title">Bitcoin Wallet Address Checker</h3>
 	<p>We have created a bitcoin wallet checker that allows you to look up any address and see how much is held, when the last transaction was and how many transactions the wallet has been a part of.</p>
-	<p><a href="walletchecker" name="bitcoin-wallet-check" target="_blank">Bitcoin Wallet Checker</a></p>
+	<p align="center"><br>
+	<button id="button" onclick="window.location.href = 'walletchecker';" class="button button5">Bitcoin Wallet Checker</button>
+	</p>
+	<br>
   </div>
   
    <div class="post-content" id="go4">
     <h3 class="post-title">Bitcoin Quiz</h3>
 	<p>Check out our bitcoin quiz to see how much you know, we also have a few links to some of the stories behind the questions. A lot has happened in bitcoin over the last 10 years, depending on when you first discovered bitcoin some of these questions might be more obvious than other!</p>
-	<p><a href="quiz" name="bitcoin-pub-quiz-questions" target="_blank">Bitcoin Quiz</a></p>
+		<p align="center">
+		<br>
+		<button id="button" onclick="window.location.href = 'quiz';" target="_blank" class="button button4">Bitcoin Quiz</button>
+		<br>
+		</p>
   </div>
   
    <div class="post-content" id="go1">
@@ -224,6 +317,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
 <div class="if-i-bought">
 	<p>You can find out more on our page <a href="if-i-bought" name="if-i-bought-bitcoin" target="_blank">If I Bought Bitcoin</a>. You can adjust the date and amount spend to see how much it would be worth now.</p>
+		<p align="center">
+		<br>
+		<button id="button" onclick="window.location.href = 'if-i-bought';" target="_blank" class="button button4">If I Bought Bitcoin</button>
+		<br>
+		</p>
 </div>
   
    <div class="post-content">
