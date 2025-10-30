@@ -137,4 +137,226 @@
         .stats { background: var(--btc-dark); color: white; text-align: center; padding: 40px 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
         .stat { font-size: 2.5rem; font-weight: bold; }
-        .stat-label { font-size: 0.9rem; opacity: 0.8;
+        .stat-label { font-size: 0.9rem; opacity: 0.8; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; }
+        footer a { color: white; text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            nav ul { flex-direction: column; gap: 12px; }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .live { animation: pulse 2s infinite; }
+    </style>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOccupationalProgram",
+      "name": "Be More Bitcoin",
+      "description": "Learn Bitcoin in the UK with interactive tools, live price tracking, and expert guides.",
+      "url": "https://bemorebitcoin.com",
+      "provider": {
+        "@type": "Organization",
+        "name": "Be More Bitcoin",
+        "sameAs": ["https://x.com/bemorebitcoin"]
+      },
+      "educationalCredentialAwarded": "Bitcoin Knowledge Certificate",
+      "hasCourse": [
+        {
+          "@type": "Course",
+          "name": "Bitcoin Trading Game",
+          "url": "https://bemorebitcoin.com/trading-game"
+        },
+        {
+          "@type": "Course",
+          "name": "Bitcoin Quiz",
+          "url": "https://bemorebitcoin.com/quiz"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="hero">
+        <div class="container">
+            <h1>Be More Bitcoin</h1>
+            <p>Learn, buy, store, and master Bitcoin in the UK with interactive tools and live data.</p>
+            <div class="live-price" id="btc-price">Loading price...</div>
+            <a href="#tools" class="btn">Explore Tools</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div>
+                <strong>Be More Bitcoin</strong>
+            </div>
+            <ul>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#why">Why Bitcoin?</a></li>
+                <li><a href="https://coinatmradar.com/" target="_blank">ATM Map</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main" class="container">
+
+        <!-- Benefits -->
+        <section id="benefits">
+            <h2 class="section-title">Why Bitcoin Matters</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Global & Borderless</h3>
+                    <p>Send value anywhere in minutes — no banks, no borders, no permission.</p>
+                </div>
+                <div class="card">
+                    <h3>Inflation Resistant</h3>
+                    <p>Only 21 million ever. A hedge against currency devaluation.</p>
+                </div>
+                <div class="card">
+                    <h3>Fraud-Proof Ledger</h3>
+                    <p>Immutable, transparent, and auditable by anyone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Stats -->
+        <section class="stats">
+            <div class="container stats-grid">
+                <div>
+                    <div class="stat" id="market-cap">$1.4T</div>
+                    <div class="stat-label">Market Cap</div>
+                </div>
+                <div>
+                    <div class="stat" id="block-height">863,000</div>
+                    <div class="stat-label">Blocks Mined</div>
+                </div>
+                <div>
+                    <div class="stat live">99.98%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div>
+                    <div class="stat">21M</div>
+                    <div class="stat-label">Total Supply</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools -->
+        <section id="tools">
+            <h2 class="section-title">Interactive Bitcoin Tools</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Bitcoin Trading Game</h3>
+                    <p>Start in 2010. Beat the market. Join the 21 Club.</p>
+                    <a href="https://bemorebitcoin.com/trading-game" class="btn">Play Now</a>
+                </div>
+                <div class="card">
+                    <h3>Wallet Checker</h3>
+                    <p>View balance, transactions, and history of any address.</p>
+                    <a href="https://bemorebitcoin.com/wallet-checker" class="btn">Check Wallet</a>
+                </div>
+                <div class="card">
+                    <h3>Bitcoin Quiz</h3>
+                    <p>Test your knowledge across 15+ years of Bitcoin history.</p>
+                    <a href="https://bemorebitcoin.com/quiz" class="btn">Take Quiz</a>
+                </div>
+                <div class="card">
+                    <h3>If I Bought...</h3>
+                    <p>See what £100 in Bitcoin 5 years ago would be worth today.</p>
+                    <a href="https://bemorebitcoin.com/if-i-bought" class="btn">Calculate</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Bitcoin -->
+        <section id="why">
+            <h2 class="section-title">Why Bitcoin Wins</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <p><strong>Undefeated since 2009.</strong> Survived bans, crashes, and FUD.</p>
+                </div>
+                <div class="card">
+                    <p><strong>Most decentralized.</strong> No CEO, no HQ, no single point of failure.</p>
+                </div>
+                <div class="card">
+                    <p><strong>Hard-capped supply.</strong> 21 million. No inflation. No printing.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <strong>Be More Bitcoin</strong>. Empowering the UK with knowledge and tools.</p>
+            <p><a href="/contact">Contact</a> • <a href="/privacy">Privacy</a> • Made with ₿ in the UK</p>
+        </div>
+    </footer>
+
+    <!-- Live Bitcoin Price Script -->
+    <script>
+        // Fetch live BTC price
+        async function updateBTCPrice() {
+            try {
+                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,gbp');
+                const data = await res.json();
+                const usd = data.bitcoin.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                const gbp = data.bitcoin.gbp.toLocaleString('en-US', { style: 'currency', currency: 'GBP' });
+                document.getElementById('btc-price').innerHTML = `${usd} | ${gbp} <span class="live">● LIVE</span>`;
+            } catch (e) {
+                document.getElementById('btc-price').textContent = 'Live price unavailable';
+            }
+        }
+
+        // Update every 30 seconds
+        updateBTCPrice();
+        setInterval(updateBTCPrice, 30000);
+
+        // Dark mode toggle
+        const toggle = document.querySelector('.theme-toggle');
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+
+        toggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Update block height (approx every 10 min)
+        let block = 863000;
+        setInterval(() => {
+            block += Math.random() > 0.5 ? 1 : 0;
+            document.getElementById('block-height').textContent = block.toLocaleString();
+        }, 600000);
+    </script>
+
+    <!-- Font (Optional: Load Inter for better typography) -->
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+</body>
+</html>
