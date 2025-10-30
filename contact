@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO & Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Be More Bitcoin – get help with Bitcoin tools, UK buying guides, or collaboration. We're here to help you go further with ₿.">
+    <meta name="keywords" content="contact Be More Bitcoin, Bitcoin help UK, Bitcoin support, UK crypto community">
+    <meta name="author" content="Be More Bitcoin">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact Us | Be More Bitcoin">
+    <meta property="og:description" content="Have a question about Bitcoin, tools, or UK adoption? Reach out – we're here to help.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bemorebitcoin.com/contact.html">
+    <meta property="og:image" content="https://bemorebitcoin.com/og-contact.jpg">
+    <meta property="og:site_name" content="Be More Bitcoin">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bemorebitcoin.com/og-contact.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://bemorebitcoin.com/contact.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Contact Us | Be More Bitcoin – UK Bitcoin Help & Support</title>
+
+    <!-- Critical CSS (Same design system as homepage) -->
+    <style>
+        :root {
+            --btc-orange: #f7931a;
+            --btc-dark: #1a1a1a;
+            --btc-light: #fff8f0;
+            --text: #2d2d2d;
+            --text-light: #f5f5f5;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --radius: 16px;
+        }
+
+        [data-theme="dark"] {
+            --btc-light: #1a1a1a;
+            --text: #f0f0f0;
+            --text-light: #ddd;
+            --shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--btc-light);
+            color: var(--text);
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+        a { color: var(--btc-orange); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #f7931a 0%, #ff6b00 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '₿';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.05;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        header h1 { font-size: 3rem; margin-bottom: 16px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        /* Nav */
+        nav {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        nav ul { display: flex; gap: 24px; list-style: none; }
+        nav a { color: var(--text); font-weight: 600; }
+        .theme-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Main */
+        main { padding: 60px 0; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+        .card h2 { color: var(--btc-orange); margin-bottom: 16px; font-size: 1.6rem; }
+        .card p { margin-bottom: 16px; }
+        .card ul { padding-left: 20px; margin-bottom: 16px; }
+        .card li { margin-bottom: 8px; }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+        label { font-weight: 600; display: block; margin-bottom: 6px; color: var(--btc-orange); }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--btc-orange);
+            box-shadow: 0 0 0 3px rgba(247,147,26,0.2);
+        }
+        textarea { min-height: 140px; resize: vertical; }
+        .btn {
+            background: var(--btc-orange);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            justify-self: start;
+            box-shadow: 0 4px 15px rgba(247,147,26,0.3);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247,147,26,0.4);
+        }
+
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--btc-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+        footer a { color: #ffab40; text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            nav ul { flex-direction: column; gap: 12px; }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    </style>
+
+    <!-- JSON-LD for Contact -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Be More Bitcoin",
+      "url": "https://bemorebitcoin.com/contact.html",
+      "description": "Get in touch for Bitcoin help, tool support, or UK adoption questions.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Be More Bitcoin",
+        "url": "https://bemorebitcoin.com"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main" class="skip-link" style="position:absolute;top:-40px;left:0;background:var(--btc-orange);color:white;padding:8px;z-index:10000;transition:top .3s;" onfocus="this.style.top='0'">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We’re here to help you **be more Bitcoin** — whether you're stuck on a tool, need UK buying advice, or want to collaborate.</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div><strong>Be More Bitcoin</strong></div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#tools">Tools</a></li>
+                <li><a href="/#benefits">Benefits</a></li>
+                <li><a href="https://coinatmradar.com/" target="_blank">ATM Map</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode">Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main" class="container fade-in">
+
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="card">
+                <h2>Send Us a Message</h2>
+                <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Satoshi Nakamoto">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="_replyto" required placeholder="satoshi@bitcoin.org">
+                    </div>
+                    <div>
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Choose one...</option>
+                            <option>Tool Support (Trading Game, Quiz, etc.)</option>
+                            <option>UK Bitcoin Buying Help</option>
+                            <option>Collaboration / Partnership</option>
+                            <option>Feedback or Bug Report</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="How can we help you go further with Bitcoin?"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div id="success-msg" class="success-msg">
+                    Thank you! Your message has been sent. We'll reply within 24 hours.
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="card">
+                <h2>Get in Touch</h2>
+                <p><strong>Email:</strong> <a href="mailto:hello@bemorebitcoin.com">hello@bemorebitcoin.com</a></p>
+                <p><strong>Twitter/X:</strong> <a href="https://x.com/bemorebitcoin" target="_blank">@bemorebitcoin</a></p>
+                <p><strong>Community:</strong> <a href="https://t.me/bemorebitcoin" target="_blank">Telegram Group</a></p>
+                <p><strong>Response Time:</strong> Usually within 24 hours</p>
+
+                <h3>Common Questions</h3>
+                <ul>
+                    <li>Where can I buy Bitcoin in the UK?</li>
+                    <li>How do I play the Trading Game?</li>
+                    <li>Is my wallet safe?</li>
+                    <li>Can I contribute a tool?</li>
+                </ul>
+                <p>Check our <a href="/faq.html">FAQ</a> first — or just ask!</p>
+
+                <h3>Office (No Drop-ins)</h3>
+                <p>Be More Bitcoin<br>
+                London, UK<br>
+                <em>Remote-first team — we live on the internet</em></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <strong>Be More Bitcoin</strong>. Empowering the UK with Bitcoin knowledge.</p>
+            <p><a href="/">Home</a> • <a href="/contact.html">Contact</a> • <a href="/privacy.html">Privacy</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle (same as homepage)
+        const toggle = document.querySelector('.theme-toggle');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        toggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+
+        toggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // Form Submission with Formspree (free, no backend needed)
+        const form = document.getElementById('contact-form');
+        const success = document.getElementById('success-msg');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (res.ok) {
+                    form.reset();
+                    success.style.display = 'block';
+                    setTimeout(() => success.style.display = 'none', 5000);
+                } else {
+                    alert('Oops! Something went wrong. Try emailing us directly.');
+                }
+            } catch (err) {
+                alert('Network error. Please try again.');
+            }
+        });
+    </script>
+
+    <!-- Font -->
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+</body>
+</html>
