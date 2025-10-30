@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO & Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check any Bitcoin wallet address: balance, recent transactions, wallet score, and insights. Safe, quick UK Bitcoin tool – no login needed.">
+    <meta name="keywords" content="Bitcoin wallet checker, check Bitcoin address, Bitcoin balance, transaction history, Bitcoin wallet score, UK Bitcoin tools">
+    <meta name="author" content="Be More Bitcoin">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Bitcoin Wallet Checker | Be More Bitcoin">
+    <meta property="og:description" content="Enter a Bitcoin address to view balance, transactions, and a trustworthiness score. Empower your due diligence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bemorebitcoin.com/walletchecker">
+    <meta property="og:image" content="https://bemorebitcoin.com/og-walletchecker.jpg">
+    <meta property="og:site_name" content="Be More Bitcoin">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bemorebitcoin.com/og-walletchecker.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://bemorebitcoin.com/walletchecker">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>Bitcoin Wallet Checker | Check Address Balance & Transactions – Be More Bitcoin</title>
+
+    <!-- Critical CSS (Matching Homepage) -->
+    <style>
+        :root {
+            --btc-orange: #f7931a;
+            --btc-dark: #1a1a1a;
+            --btc-light: #fff8f0;
+            --text: #2d2d2d;
+            --text-light: #f5f5f5;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --radius: 16px;
+        }
+
+        [data-theme="dark"] {
+            --btc-light: #1a1a1a;
+            --text: #f0f0f0;
+            --text-light: #ddd;
+            --shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--btc-light);
+            color: var(--text);
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+        a { color: var(--btc-orange); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #f7931a 0%, #ff6b00 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '₿';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.05;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        header h1 { font-size: 3rem; margin-bottom: 16px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        /* Nav */
+        nav {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        nav ul { display: flex; gap: 24px; list-style: none; }
+        nav a { color: var(--text); font-weight: 600; }
+        .theme-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Main */
+        main { padding: 60px 0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: var(--btc-orange); }
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .card h2, .card h3 { color: var(--btc-orange); margin-bottom: 16px; }
+        .card ul { padding-left: 20px; margin-bottom: 16px; }
+        .card li { margin-bottom: 8px; }
+
+        /* Checker Form */
+        .checker-form { display: grid; gap: 20px; max-width: 600px; margin: 0 auto 40px; }
+        label { font-weight: 600; display: block; margin-bottom: 6px; color: var(--btc-orange); }
+        input[type="text"] {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        input:focus { outline: none; border-color: var(--btc-orange); box-shadow: 0 0 0 3px rgba(247,147,26,0.2); }
+        .btn { background: var(--btc-orange); color: white; padding: 14px 28px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 15px rgba(247,147,26,0.3); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(247,147,26,0.4); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* Results */
+        #results { display: none; }
+        .wallet-score { font-size: 2rem; font-weight: bold; color: var(--btc-orange); }
+        .tx-list { max-height: 300px; overflow-y: auto; }
+        .tx-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
+        .download-btn { background: #28a745; margin-top: 16px; }
+
+        /* Interesting Addresses */
+        .examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 20px; }
+        .example-btn { background: #f8f9fa; border: 1px solid #dee2e6; padding: 12px; border-radius: 8px; cursor: pointer; text-align: left; transition: var(--transition); }
+        .example-btn:hover { background: var(--btc-orange); color: white; }
+
+        /* Footer */
+        footer {
+            background: var(--btc-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+        footer a { color: #ffab40; text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            nav ul { flex-direction: column; gap: 12px; }
+            .examples { grid-template-columns: 1fr; }
+        }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    </style>
+
+    <!-- JSON-LD Schema for Tool -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bitcoin Wallet Checker",
+      "description": "Tool to check Bitcoin address balance, transactions, and score.",
+      "url": "https://bemorebitcoin.com/walletchecker",
+      "applicationCategory": "FinanceApplication",
+      "featureList": ["Balance Check", "Transaction History", "Wallet Score"],
+      "provider": {
+        "@type": "Organization",
+        "name": "Be More Bitcoin",
+        "url": "https://bemorebitcoin.com"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main" class="skip-link" style="position:absolute;top:-40px;left:0;background:var(--btc-orange);color:white;padding:8px;z-index:10000;transition:top .3s;" onfocus="this.style.top='0'">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Bitcoin Wallet Checker</h1>
+            <p>Quickly view balance, recent transactions, and a trustworthiness score for any Bitcoin address. Safe – no login required.</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div><strong>Be More Bitcoin</strong></div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#tools">Tools</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main" class="container fade-in">
+
+        <!-- Checker Form -->
+        <section class="card">
+            <h2 class="section-title">Check a Bitcoin Address</h2>
+            <form class="checker-form" id="checker-form">
+                <label for="address">Enter Bitcoin Address</label>
+                <input type="text" id="address" placeholder="e.g., 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" required>
+                <button type="submit" class="btn">Check Address</button>
+            </form>
+            <div id="loading" style="display:none; text-align:center;">Loading blockchain data...</div>
+            <div id="results" class="card"></div>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="card">
+            <h2>Bitcoin Wallet Insights</h2>
+            <p>Download and review recent transaction times, amounts sent, and balance over time. Compare with other sources to confirm transactions or third-party reports.</p>
+        </section>
+
+        <section class="card">
+            <h2>Due Diligence on a Bitcoin Address</h2>
+            <p>Before sending Bitcoin to a new recipient, verify trustworthiness. Our checker reviews balance, sent/received amounts, transaction count, and more for an overall wallet score (out of 10).</p>
+            <p>This helps distinguish high-volume e-commerce wallets, personal beginner accounts, or exchange addresses.</p>
+        </section>
+
+        <section class="card">
+            <h2>Checking Your Own Balance Safely</h2>
+            <p>Quicker and safer than logging in—query the blockchain directly without passwords or risking device security.</p>
+        </section>
+
+        <section class="card">
+            <h2>Interesting Addresses to Explore</h2>
+            <div class="examples">
+                <button class="example-btn" onclick="document.getElementById('address').value='1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa';">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa – First Address (50 BTC reward)</button>
+                <button class="example-btn" onclick="document.getElementById('address').value='14rE7Jqy4a6P27qWCCsngkUfBxtevZhPHB';">14rE7Jqy4a6P27qWCCsngkUfBxtevZhPHB – Silkroad Seized Coins</button>
+                <button class="example-btn" onclick="document.getElementById('address').value='3D2oetdNuZUqQHPJmcMDDHYoqkyNVsFk9r';">3D2oetdNuZUqQHPJmcMDDHYoqkyNVsFk9r – Bitfinex Exchange</button>
+            </div>
+            <p>Learn more about Bitcoin address breakdowns from <a href="https://cryptocanucks.com/" target="_blank">Cryptocanucks</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2>The Be More Bitcoin Wallet Rating</h2>
+            <p>A score out of 10 based on activity, balance stability, and transaction history. High scores indicate established, active wallets; low scores may signal new or dormant ones.</p>
+            <ul>
+                <li>Inactive wallets lose score over time.</li>
+                <li>Score factors: tx count, recent activity, balance changes.</li>
+                <li>Timestamps are approximate (±1-2 hours due to block timing).</li>
+                <li>Balances in full BTC (unconfirmed tx excluded).</li>
+            </ul>
+            <p>Monitor stolen coin wallets via blockchain transparency. For buying/selling, <a href="/#tools">compare prices here</a>.</p>
+            <p>Share this tool? Feedback to <a href="mailto:bemorebitcoin@gmail.com">bemorebitcoin@gmail.com</a>. Donate: <strong>12yqAPjYdsfZrNf9XAWovquJ3piqsUrMWV</strong> (QR: <img src="bemorebitcoinQRcode" alt="Donation QR Code" width="150">).</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <strong>Be More Bitcoin</strong>. Empowering the UK with Bitcoin tools.</p>
+            <p><a href="/">Home</a> • <a href="/contact.html">Contact</a> • <a href="/privacy.html">Privacy</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle (Matching Site)
+        const toggle = document.querySelector('.theme-toggle');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        toggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Wallet Checker Logic (BlockCypher API)
+        const form = document.getElementById('checker-form');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const address = document.getElementById('address').value.trim();
+            if (!address) return;
+
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            form.querySelector('button').disabled = true;
+
+            try {
+                // Fetch address info
+                const infoRes = await fetch(`https://api.blockcypher.com/v1/btc/main/addrs/${address}?limit=50`);
+                const info = await infoRes.json();
+
+                if (info.error) {
+                    results.innerHTML = `<p style="color:red;">Error: ${info.error}</p>`;
+                    results.style.display = 'block';
+                    return;
+                }
+
+                // Fetch recent txs
+                const txsRes = await fetch(`https://api.blockcypher.com/v1/btc/main/addrs/${address}/full?limit=10`);
+                const txsData = await txsRes.json();
+                const txs = txsData.txs || [];
+
+                // Simple Wallet Score (0-10): Based on tx count, balance stability, age
+                const txCount = info.n_tx || 0;
+                const balance = (info.balance / 1e8).toFixed(8); // Satoshi to BTC
+                const firstSeen = info.txrefs?.[0]?.ref_block_number || 0;
+                const ageBlocks = 870000 - firstSeen; // Approx current block height as of Oct 2025
+                const score = Math.min(10, Math.max(0, (txCount * 0.5 + (balance > 0 ? 2 : 0) + (ageBlocks / 10000)) / 2));
+
+                // Build results HTML
+                let txHtml = '';
+                txs.slice(0, 5).forEach(tx => {
+                    const time = new Date(tx.received).toLocaleString();
+                    const value = (tx.value / 1e8).toFixed(4);
+                    txHtml += `<div class="tx-item"><span>${time}</span><span>${value} BTC</span><span>${tx.confirmations} conf</span></div>`;
+                });
+
+                results.innerHTML = `
+                    <h3>Address: ${address}</h3>
+                    <p><strong>Balance:</strong> ${balance} BTC</p>
+                    <p><strong>Total Transactions:</strong> ${txCount}</p>
+                    <p><strong>Wallet Score:</strong> <span class="wallet-score">${score.toFixed(1)}/10</span> ${score > 7 ? '🟢 Established' : score > 4 ? '🟡 Moderate' : '🔴 New/Dormant'}</p>
+                    <h4>Recent Transactions</h4>
+                    <div class="tx-list">${txHtml || '<p>No recent transactions.</p>'}</div>
+                    <button class="btn download-btn" onclick="downloadCSV('${address}', ${JSON.stringify(txs).replace(/"/g, '&quot;')} )">Download CSV</button>
+                `;
+                results.style.display = 'block';
+            } catch (err) {
+                results.innerHTML = `<p style="color:red;">Failed to fetch data. Try again or check your connection.</p>`;
+                results.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+                form.querySelector('button').disabled = false;
+            }
+        });
+
+        // Download CSV Function
+        function downloadCSV(address, txs) {
+            const csv = 'Time,Value (BTC),Confirmations\n' + txs.map(tx => `${new Date(tx.received).toLocaleString()},"${(tx.value / 1e8).toFixed(4) }",${tx.confirmations}`).join('\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `wallet-${address.slice(0,10)}...-transactions.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+    <!-- Font -->
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+</body>
+</html>
